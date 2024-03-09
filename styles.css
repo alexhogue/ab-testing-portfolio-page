@@ -16,15 +16,15 @@
 }
 
 h1{
-  font-size: 48px;
+  font-size: 42px;
   font-family: 'BasisGrotesk';
 }
 h2{
-  font-size: 32px;
+  font-size: 28px;
   font-family: 'MabryMonoMRegular';
 }
 h3{
-  font-size: 28px;
+  font-size: 24px;
   font-family: 'FoundersGroteskLight';
   color: #474747;
 }
@@ -51,7 +51,7 @@ li:not(:last-child){
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 8%;
-  margin-bottom: 10%;
+  margin-bottom: 4%;
 }
 
 #pageLink:hover{
@@ -59,7 +59,41 @@ li:not(:last-child){
   transition: 0.5s;
 }
 
+#interfaces{
+  display: flex;
+  justify-content: space-between;
+  gap:4%;
+}
+#versionA{
+  display:flex;
+  flex-direction: column;
+}
+#versionB{
+  display: flex;
+  flex-direction: column;
+}
+#versionAImg{
+  width:100%;
+}
+#versionBImg{
+  width:100%;
+}
+
+#data{
+  margin-bottom: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#analysis{
+  margin-bottom: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 #conclusion{
   margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
   min-width: 325px;
 }
