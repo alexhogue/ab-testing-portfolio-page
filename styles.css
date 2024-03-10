@@ -74,9 +74,41 @@ li:not(:last-child){
 }
 #versionAImg{
   width:100%;
+  margin-bottom: 2%;
 }
 #versionBImg{
   width:100%;
+  margin-bottom: 2%;
+}
+
+.hypotheses{
+  display: flex;
+  align-items: flex-start;
+  gap: 4%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+.metric{
+  white-space: nowrap;
+}
+.nullSec{
+  width: 50%;
+}
+.altSec{
+  width: 50%;
+}
+.prediction, .reasoning, .changes, .dataSum{
+  font-size: 16px;
+  line-height: 24px;
+}
+.results{
+  display: flex;
+  align-items: flex-start;
+  gap: 4%;
+  margin-bottom: 2%;
+}
+.conclusions{
+  width: 90%;
 }
 
 #data{
@@ -89,6 +121,10 @@ li:not(:last-child){
   margin-bottom: 8%;
   margin-left: 10%;
   margin-right: 10%;
+}
+#dataSummary{
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #conclusion{

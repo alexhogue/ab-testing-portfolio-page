@@ -8,30 +8,29 @@
   <body>
     <div id="titleArea">
         <h1>Interface A/B Testing</h1>
-        <!-- <h2>The Grand Adventure</h2> -->
         <h3>Goal: to run an A/B test on two UI designs and analyze the results in order to improve user interaction</h3>
         <hr>
     </div>
 
     <div id="data">
       <h2>Data Collection</h2>
-      <p>One group of participants was tested as they completed a particular task with two different variations of a webpage interface.
-        Both groups of data while completing the task was recorded in order to later test the impact of the interface change on the
-        user interaction. The given task was as follows:
+      <p>A group of participants was tested as they completed a particular task with two different variations of a webpage interface.
+        The data for both interfaces was collected as the participants completed a particular in order to test the impact of the interface 
+        change on the user interaction. The given task was as follows:
       </p>
       <p><b>Task:</b> Schedule an appointment with Adam Ng, MD at Morristown Medical Center on April 23, 2024</p>
       <div id="interfaces">
         <div id="versionA">
           <h4>Version A</h4>
-          <img id="versionAImg" src="assets/version_A.png">
-          <p>Interface A has no distinction between the appointment offerings besides the description text itself. Additionally, there
+          <img id="versionAImg" alt="Interface version tested on group A" src="assets/version_A.png">
+          <p class="changes">Interface A has no distinction between the appointment offerings besides the description text itself. Additionally, there
             is minimal button contrast, which limits the legibility of the buttons used to schedule the appointment. 
           </p>
         </div>
         <div id="versionB">
           <h4>Version B</h4>
-          <img id="versionBImg" src="assets/version_B.png">
-          <p>Interface B added a background color corresponding to the appointment location. Additionally, the contrast between
+          <img id="versionBImg" alt="Interface version tested on group B" src="assets/version_B.png">
+          <p class="changes">Interface B added a background color corresponding to the appointment location. Additionally, the contrast between
             the button text and background was increased as well as differentiation between the "see appointment" and "schedule
             appointment" buttons.
           </p>
@@ -43,36 +42,159 @@
       <h2>Data Analysis</h2>
       <div>
         <h4>Hypotheses</h4>
-        <div id="misclick">
-          <h5>Misclick Rate</h5>
-          <p class="null"><b>Null hypothesis:</b></p>
-          <p class="prediction">Prediction:</p>
-          <p class="alternative"><b>Alternative hypothesis:</b></p>
-          <p class="reasoning">Reasoning:</p>
+        <div id="misclick" class="hypotheses">
+          <h5 class="metric">Misclick Rate</h5>
+          <div class="nullSec">
+            <p class="null"><b>Null hypothesis:</b> A user interacting with interface version A will misclick on the page before 
+              completing the task equally on average compared to users of version B.</p>
+            <p class="prediction"><b>Prediction:</b> I predict that I will end up rejecting the null hypothesis because I believe the 
+              changes made to the interface in version B will alter how users interact with the page, affecting their misclick rate.</p>
+          </div>
+          <div class="altSec">
+            <p class="alternative"><b>Alternative hypothesis:</b> Users interacting with version A will misclick less frequently than 
+              users of version B.</p>
+            <p class="reasoning"><b>Reasoning:</b> I am making this hypothesis because I think the changes to the background colors 
+              to align with the corresponding medical center will encourage users to pay more attention to what they click. I also 
+              think the button contrast and improved legibility will make the process clearer to users, and reduce their misclick 
+              rate. However, it is also possible that the colors confuse the user, resulting in them misclicking.</p>
+          </div>
         </div>
-        <div id="time">
-          <h5>Time on Page</h5>
-          <p class="null"><b>Null hypothesis:</b></p>
-          <p class="prediction">Prediction:</p>
-          <p class="alternative"><b>Alternative hypothesis:</b></p>
-          <p class="reasoning">Reasoning:</p>
+        <div id="time" class="hypotheses">
+          <h5 class="metric">Time on Page</h5>
+          <div class="nullSec">
+            <p class="null"><b>Null hypothesis:</b> Users of version A will spend the same amount of time on the webpage before 
+              completing the task as users of version B.</p>
+            <p class="prediction"><b>Prediction:</b> I predict that I will end up rejecting the null hypothesis because I believe 
+              the changes made to the interface in version B will alter how quickly users will complete the given task.</p>
+          </div>
+          <div class="altSec">
+            <p class="alternative"><b>Alternative hypothesis:</b> Users of version B will spend less time on the page before 
+              completing the task than users of version A.</p>
+            <p class="reasoning"><b>Reasoning:</b> I am making this hypothesis because the changes in the UI of version B, such as 
+              the higher contrast buttons and color coded backgrounds, will likely direct users to the target appointment quicker 
+              compared to version A.</p>
+          </div>
         </div>
-        <div id="distance">
-          <h5>Mouse Move Distance</h5>
-          <p class="null"><b>Null hypothesis:</b></p>
-          <p class="prediction">Prediction:</p>
-          <p class="alternative"><b>Alternative hypothesis:</b></p>
-          <p class="reasoning">Reasoning:</p>
+        <div id="distance" class="hypotheses">
+          <h5 class="metric">Mouse Move <br>Distance</h5>
+          <div class="nullSec">
+            <p class="null"><b>Null hypothesis:</b> Users of version A will move their mouse around the page the same amount as 
+              users of version B before completing their task.</p>
+            <p class="prediction"><b>Prediction:</b> I predict that I will end up rejecting the null hypothesis because I believe 
+              the added button contrast and background color categorization will affect the way in which users navigate down the 
+              page.</p>
+          </div>
+          <div class="altSec">
+            <p class="alternative"><b>Alternative hypothesis:</b> Users of version A will move their mouse more on the page before 
+              completing the task than users of version B.</p>
+            <p class="reasoning"><b>Reasoning:</b>  I am making this hypothesis because I believe the colored backgrounds as well as 
+              the boosted contrast and color differentiation between the buttons  will direct the users to the desired appointment 
+              more efficiently than version A without these changes.</p>
+          </div>
         </div>
       </div>
       <div>
-        <h4>Findings</h4>
+        <h4>Statistical Findings</h4>
+        <div id="findings">
+          <div class="results">
+            <h5 class="metric">Misclick Rate</h5>
+            <div class="conclusions">
+              <p>For misclick rate analysis, I used a <b>chi-squared test</b> because analyzing the frequency of a particular item in a set of data, 
+              such as TRUE and FALSE, is particularly suited for this kind of test; the data collected for misclick rate is binary, 
+              with each instance falling into one of two categories: clicked (true) or not clicked (false). Based on the resulting 
+              statistics, the difference between versions A and B with respect to this metric is not statistically significant. </p>
+              <ul>
+                <li>The <b>degree of freedom</b> of 1 indicates that the chi-squared test involves two categorical variables with two levels each.</li>
+                <li>The small <b>chi-squared value</b> of 0.014 suggests that there is little deviation between the frequencies in the two groups.</li>
+                <li>The high <b>p-value</b> of 0.905 is close to 1, which suggests that any observed differences are likely due to random variation rather 
+                  than a true distinction between the test groups.</li>
+              </ul>
+              <p>Based on the data from this test, I reject to fail the null hypothesis.</p>
+            </div>
+          </div>
+          <div class="results">
+            <h5 class="metric">Time on Page</h5>
+            <div class="conclusions">
+              <p>For this metric, I used a <b>one-tailed t-test</b> because there is a specific directional hypothesis, and I want to test 
+                whether the mean of one group is significantly greater than or less than that of the other. Based on the one-tailed 
+                t-test results, there is insufficient evidence to conclude that the mean of dataset B is significantly less than the 
+                mean of dataset A.</p>
+              <ul>
+                <li>The <b>degrees of freedom</b> of 48.428 indicates the number of independent observations used to calculate the t-score.</li>
+                <li>The <b>t-score</b> of 0.538 is less than 1, suggesting a relatively small difference between the means of datasets A and B</li>
+                <li>The <b>p-value</b> of 0.296 represents the probability that group B’s time on the page is less than group A’s time on page. 
+                  Even though this is less than a 50% chance, in order to have confidence evidence that B &lt; A, this value should be 
+                  around 0.05. So, there is no strong indication that the mean of A is less than the mean of B.</li>
+              </ul>
+              <p>The high p-value suggests that there is no significant evidence to reject the null hypothesis for this test and 
+                suggests that any observed difference in means could likely be due to random variation rather than a true 
+                difference between the two datasets.</p>
+            </div>
+          </div>
+          <div class="results">
+            <h5 class="metric">Mouse Move <br>Distance</h5>
+            <div class="conclusions">
+              <p>For this metric, I used a <b>one-tailed t-test</b> because the hypothesis predicts a specific directional expectation 
+                about the difference between the two groups. A one-tailed t-test is appropriate when you have a strong directional 
+                hypothesis, such as predicting that users of version A will move their mouse farther than users of version B. Based 
+                on the results of this test, there is evidence to support the hypothesis that the mean of group B is less than the 
+                mean of group A. The low p-value suggests that the observed difference in means is unlikely to be due to random 
+                variation, and there may be a true difference between the two datasets.</p>
+              <ul>
+                <li>The positive <b>t-score</b> of 2.4064 suggests that the mean of group A is higher than the mean of group B. 
+                  The larger the t-score, the more evidence there is against the null hypothesis.</li>
+                <li>The low <b>p-value</b> of 0.0103 for A &gt; B (less than the commonly used significance level of 0.05) suggests 
+                  that there is significant evidence to reject the null hypothesis. In other words, there is strong indication 
+                  that the results of group B are less than the results of group A.</li>
+              </ul>
+              <p>Based on this analysis of the data, I feel confident rejecting the null hypothesis.</p>
+            </div>
+          </div>
+        </div>
+        <h4>Summary Statistics</h4>
+        <p>When running an A/B test, it is important to not only look at the output of the test itself, but also understand the 
+          general shape and pattern of the data. One way to do this is through evaluation of summary statistics:</p>
+        <div id="dataSummary">
+          <p class="dataSum">For the group A tests, 34 data points were collected, and for the group B tests, 30 data points were collected. 
+            Increasing the sample spaces of the tests would improve the accuracy and reliability of the results further. </p>
+          <p class="dataSum">The median time on page for version A is 8222.5 and the mean is 9729.97. For group B, the median is 
+            8613  and the mean is 8699.79. There is not a mode value for the data as none of the values repeated.  These statistics 
+            reinforce the failure to reject the null hypothesis. Even though there is a fairly significant difference between the 
+            means of the groups, the mean of group A is larger than the median, suggesting a right-skewed distribution. The right 
+            skew indicates that there are high values pulling the mean to the right, which can be seen when looking at the 
+            individual data points for group A; there is one extreme outlier of 56671. In such cases, the median, being less 
+            sensitive to extreme values, gives a more representative measure of central tendency. The median shows that the 
+            collection of data points in group A is centered around 8222.5. Thus, the medians reflect the similarity between the 
+            two outcomes of both versions for this metric.</p>
+          <p class="dataSum">Version A mouse move distance median is 3853.02 and the mean is 3267.09. For group B, the median for mouse move 
+            distance is 2450.79 and the mean is 2731.42. For this metric, the median and averages are generally reflective of 
+            the analysis of the p-value from the results from the t-test. These values reinforce the rejection of the null 
+            hypothesis as the results of group B are consistently smaller than those of group A .</p>
+        </div>
+        <p>Analyzing these summary statistics not only aids in understanding the central trends within each group but also helps 
+          detect unusual patterns that may impact the overall interpretation of the A/B test results. Based on the results and 
+          analyses, I can conclude that the changes made to the interface design do not have a significant impact on user 
+          experience; the user in either group made about the same rate of misclicks, and the difference in time spent is not 
+          large enough to make a claim about this metric. However, one striking difference between the two groups is the mouse 
+          move distance, which was lower for those using version B. This indicates that the color coded appointments by location 
+          or the increased contrast, legibility, and distinction between the scheduling buttons provided a more direct and clear 
+          route to accomplishing the given task. In contrast, users of version A moved their mouse more before completing the task, 
+          likely due to searching the page with limited contrast and legibility. So, while 2 of the 3 metrics did not offer strong 
+          enough evidence to reject the null hypothesis, the third metric, mouse move distance, provided interesting data that 
+          suggests that there is a quantifiable impact on the user experience due to the change to the interface.</p>
       </div>
     </div>
 
     <div id="conclusion">
       <h2>Key Takeaways</h2>
-    
+      <p>A/B testing offers valuable insights into the impact of interface design changes on user behavior. It emphasizes the need 
+        for a holistic evaluation, considering multiple metrics, and highlights the importance of specific design elements in 
+        influencing user interactions. The reduced mouse move distance for version B users suggests that the changes made to this 
+        interface version resulted in a more straightforward and clear user experience. Users were able to navigate and complete 
+        tasks more efficiently, possibly due to improved visual elements and contrast in the interface. This shows that 
+        understanding user behavior patterns, such as mouse move distance, is crucial for optimizing interface design. The project 
+        underscores the iterative nature of interface design. While some improvements were evident in version B, ongoing testing, 
+        user feedback, and further iterations are also necessary to refine and enhance the user experience continually.</p>  
     </div>
   </body>
 
