@@ -8,7 +8,8 @@
   <body>
     <div id="titleArea">
         <h1>Interface A/B Testing</h1>
-        <h3>Goal: to run an A/B test on two UI designs and analyze the results in order to improve user interaction</h3>
+        <h3 id="goal">Goal: to run an A/B test on two different UI designs and analyze the results in order to determine whether a design 
+          choice could reasonably impact user interaction</h3>
         <hr>
     </div>
 
@@ -53,10 +54,10 @@
           <div class="altSec">
             <p class="alternative"><b>Alternative hypothesis:</b> Users interacting with version A will misclick less frequently than 
               users of version B.</p>
-            <p class="reasoning"><b>Reasoning:</b> I am making this hypothesis because I think the changes to the background colors 
-              to align with the corresponding medical center will encourage users to pay more attention to what they click. I also 
-              think the button contrast and improved legibility will make the process clearer to users, and reduce their misclick 
-              rate. However, it is also possible that the colors confuse the user, resulting in them misclicking.</p>
+            <p class="reasoning"><b>Reasoning:</b> I think the changes to the background colors to correspond with the medical 
+              center will encourage users to pay more attention to what they click. I also think the button contrast and improved 
+              legibility will make the task clearer to users, and reduce their misclick rate. However, it is also possible that the 
+              colors confuse the user, resulting in them misclicking.</p>
           </div>
         </div>
         <div id="time" class="hypotheses">
@@ -70,9 +71,9 @@
           <div class="altSec">
             <p class="alternative"><b>Alternative hypothesis:</b> Users of version B will spend less time on the page before 
               completing the task than users of version A.</p>
-            <p class="reasoning"><b>Reasoning:</b> I am making this hypothesis because the changes in the UI of version B, such as 
-              the higher contrast buttons and color coded backgrounds, will likely direct users to the target appointment quicker 
-              compared to version A.</p>
+            <p class="reasoning"><b>Reasoning:</b> I think that the changes to the UI of version B, such as the higher contrast 
+              buttons and color coded backgrounds, will likely provide visual emphasis to direct users to the target appointment 
+              quicker compared to version A.</p>
           </div>
         </div>
         <div id="distance" class="hypotheses">
@@ -87,8 +88,8 @@
           <div class="altSec">
             <p class="alternative"><b>Alternative hypothesis:</b> Users of version A will move their mouse more on the page before 
               completing the task than users of version B.</p>
-            <p class="reasoning"><b>Reasoning:</b>  I am making this hypothesis because I believe the colored backgrounds as well as 
-              the boosted contrast and color differentiation between the buttons  will direct the users to the desired appointment 
+            <p class="reasoning"><b>Reasoning:</b> I believe the colored backgrounds as well as the boosted contrast and color 
+              differentiation between the buttons will provide visual hierarchy to direct the users to the desired appointment 
               more efficiently than version A without these changes.</p>
           </div>
         </div>
@@ -115,13 +116,13 @@
           <div class="results">
             <h5 class="metric">Time on Page</h5>
             <div class="conclusions">
-              <p>For this metric, I used a <b>one-tailed t-test</b> because there is a specific directional hypothesis, and I want to test 
-                whether the mean of one group is significantly greater than or less than that of the other. Based on the one-tailed 
-                t-test results, there is insufficient evidence to conclude that the mean of dataset B is significantly less than the 
-                mean of dataset A.</p>
+              <p>A one-tailed t-test is appropriate when you have a strong directional hypothesis. So, for this metric, I used a 
+                <b>one-tailed t-test</b> as I am testing a specific directional hypothesis (whether the mean of one group is 
+                significantly greater than or less than that of the other). Based on the one-tailed t-test results, there is 
+                insufficient evidence to conclude that the mean of dataset B is significantly less than the mean of dataset A.</p>
               <ul>
                 <li>The <b>degrees of freedom</b> of 48.428 indicates the number of independent observations used to calculate the t-score.</li>
-                <li>The <b>t-score</b> of 0.538 is less than 1, suggesting a relatively small difference between the means of datasets A and B</li>
+                <li>The <b>t-score</b> of 0.538 is less than 1, suggesting a relatively small difference between the means of datasets A and B.</li>
                 <li>The <b>p-value</b> of 0.296 represents the probability that group B’s time on the page is less than group A’s time on page. 
                   Even though this is less than a 50% chance, in order to have confidence evidence that B &lt; A, this value should be 
                   around 0.05. So, there is no strong indication that the mean of A is less than the mean of B.</li>
@@ -135,10 +136,9 @@
             <h5 class="metric">Mouse Move <br>Distance</h5>
             <div class="conclusions">
               <p>For this metric, I used a <b>one-tailed t-test</b> because the hypothesis predicts a specific directional expectation 
-                about the difference between the two groups. A one-tailed t-test is appropriate when you have a strong directional 
-                hypothesis, such as predicting that users of version A will move their mouse farther than users of version B. Based 
-                on the results of this test, there is evidence to support the hypothesis that the mean of group B is less than the 
-                mean of group A. The low p-value suggests that the observed difference in means is unlikely to be due to random 
+                about the difference between the two groups (that users of version A will move their mouse farther than users of version 
+                B). Based on the results of this test, there is evidence to support the hypothesis that the mean of group B is less than 
+                the mean of group A. The low p-value suggests that the observed difference in means is unlikely to be due to random 
                 variation, and there may be a true difference between the two datasets.</p>
               <ul>
                 <li>The positive <b>t-score</b> of 2.4064 suggests that the mean of group A is higher than the mean of group B. 
@@ -152,49 +152,57 @@
           </div>
         </div>
         <h4>Summary Statistics</h4>
-        <p>When running an A/B test, it is important to not only look at the output of the test itself, but also understand the 
+        <p>When running an A/B test, it is important to not only look at the output of the test itself but to also understand the 
           general shape and pattern of the data. One way to do this is through evaluation of summary statistics:</p>
         <div id="dataSummary">
-          <p class="dataSum">For the group A tests, 34 data points were collected, and for the group B tests, 30 data points were collected. 
-            Increasing the sample spaces of the tests would improve the accuracy and reliability of the results further. </p>
-          <p class="dataSum">The median time on page for version A is 8222.5 and the mean is 9729.97. For group B, the median is 
-            8613  and the mean is 8699.79. There is not a mode value for the data as none of the values repeated.  These statistics 
-            reinforce the failure to reject the null hypothesis. Even though there is a fairly significant difference between the 
-            means of the groups, the mean of group A is larger than the median, suggesting a right-skewed distribution. The right 
-            skew indicates that there are high values pulling the mean to the right, which can be seen when looking at the 
-            individual data points for group A; there is one extreme outlier of 56671. In such cases, the median, being less 
-            sensitive to extreme values, gives a more representative measure of central tendency. The median shows that the 
-            collection of data points in group A is centered around 8222.5. Thus, the medians reflect the similarity between the 
-            two outcomes of both versions for this metric.</p>
-          <p class="dataSum">Version A mouse move distance median is 3853.02 and the mean is 3267.09. For group B, the median for mouse move 
-            distance is 2450.79 and the mean is 2731.42. For this metric, the median and averages are generally reflective of 
-            the analysis of the p-value from the results from the t-test. These values reinforce the rejection of the null 
-            hypothesis as the results of group B are consistently smaller than those of group A .</p>
+          <div class="dataSum">
+            <p class="dataHead"><b>Sample Size:</b></p>
+            <p class="dataPar">For the group A tests, 34 data points were collected, and for the group B tests, 30 data points were collected. 
+              Increasing the sample spaces of the tests would further improve the accuracy and reliability of the results. </p>
+          </div>
+          <div class="dataSum">
+            <p class="dataHead"><b>Time on Page <br>Mean/Median</b></p>
+            <p class="dataPar">The median time on page for version A is 8222.5 and the mean is 9729.97. For group B, the median is 
+              8613  and the mean is 8699.79. There is not a mode value for the data as none of the values repeat. These statistics 
+              reinforce the failure to reject the null hypothesis. Even though there is a fairly significant difference between the 
+              two means, the mean of group A is larger than the median, suggesting a right-skewed distribution. The right skew 
+              indicates that there are high values pulling the mean to the right, which can be seen when looking at group A’s 
+              individual data points; there is one extreme outlier of 56671. In such cases, the median, being less sensitive to 
+              extreme values, gives a more representative measure of central tendency. Thus, the two medians for this metric reflect 
+              the similarity in the outcomes of both versions.</p>
+          </div>
+          <div class="dataSum">
+            <p class="dataHead"><b>Mouse Move <br>Mean/Median</b></p>
+            <p class="dataPar">Version A mouse move distance median is 3853.02 and the mean is 3267.09. For group B, the median mouse 
+              move distance is 2450.79 and the mean is 2731.42. For this metric, the median and averages are generally reflective of 
+              the analysis of the p-value from the results from the t-test. These values reinforce the rejection of the null 
+              hypothesis as the results of group B are consistently smaller than those of group A .</p>
+          </div>
         </div>
-        <p>Analyzing these summary statistics not only aids in understanding the central trends within each group but also helps 
-          detect unusual patterns that may impact the overall interpretation of the A/B test results. Based on the results and 
-          analyses, I can conclude that the changes made to the interface design do not have a significant impact on user 
-          experience; the user in either group made about the same rate of misclicks, and the difference in time spent is not 
-          large enough to make a claim about this metric. However, one striking difference between the two groups is the mouse 
-          move distance, which was lower for those using version B. This indicates that the color coded appointments by location 
-          or the increased contrast, legibility, and distinction between the scheduling buttons provided a more direct and clear 
-          route to accomplishing the given task. In contrast, users of version A moved their mouse more before completing the task, 
-          likely due to searching the page with limited contrast and legibility. So, while 2 of the 3 metrics did not offer strong 
-          enough evidence to reject the null hypothesis, the third metric, mouse move distance, provided interesting data that 
-          suggests that there is a quantifiable impact on the user experience due to the change to the interface.</p>
+        <p>Analyzing these summary statistics not only aids in understanding the trends within each group but also helps to detect 
+          unusual patterns that may impact the overall interpretation of the A/B test results. Based on the analyses, I can 
+          conclude that the changes made to the interface design do not have a significant impact on user experience; the user in 
+          either group made about the same rate of misclicks, and the difference in time spent is not large enough to make a claim 
+          about this metric. However, one striking difference between the two groups is difference in the mouse move distance, 
+          which was lower for version B. This indicates that the color coded appointments by location or the increased contrast 
+          and legibility of the scheduling buttons provided a more direct and clear route to accomplishing the given task. So, 
+          while 2 of the 3 metrics did not offer strong enough evidence to reject the null hypothesis, the third metric, mouse 
+          move distance, provided interesting data that suggests that there is a quantifiable impact on the user experience due 
+          to the change to the interface.</p>
       </div>
     </div>
 
     <div id="conclusion">
       <h2>Key Takeaways</h2>
-      <p>A/B testing offers valuable insights into the impact of interface design changes on user behavior. It emphasizes the need 
-        for a holistic evaluation, considering multiple metrics, and highlights the importance of specific design elements in 
-        influencing user interactions. The reduced mouse move distance for version B users suggests that the changes made to this 
-        interface version resulted in a more straightforward and clear user experience. Users were able to navigate and complete 
-        tasks more efficiently, possibly due to improved visual elements and contrast in the interface. This shows that 
-        understanding user behavior patterns, such as mouse move distance, is crucial for optimizing interface design. The project 
-        underscores the iterative nature of interface design. While some improvements were evident in version B, ongoing testing, 
-        user feedback, and further iterations are also necessary to refine and enhance the user experience continually.</p>  
+      <p>A/B testing offers valuable insights into the impact of interface design on user behavior. It emphasizes the need for a 
+        holistic evaluation, consideration of multiple metrics, and the importance of specific design elements in influencing user 
+        interactions. The reduced mouse move distance for version B users suggests that the changes made to this interface version 
+        resulted in a more straightforward user experience. Users were able to navigate and complete the task more efficiently, 
+        possibly due to improved visual elements and contrast in the interface. This shows that understanding user behavior 
+        patterns, such as mouse move distance, is crucial for optimizing interface design.</p>  
+      <p>The project also underscores the iterative nature of interface design. While some improvement was evident in version B, 
+        ongoing testing, user feedback, and further iterations are also necessary to refine and enhance the user experience more 
+        significantly.</p>
     </div>
   </body>
 

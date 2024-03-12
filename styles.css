@@ -53,7 +53,9 @@ li:not(:last-child){
   margin-top: 8%;
   margin-bottom: 4%;
 }
-
+#goal{
+  width: 75%;
+}
 #pageLink:hover{
   color:#991A8C;
   transition: 0.5s;
@@ -97,9 +99,13 @@ li:not(:last-child){
 .altSec{
   width: 50%;
 }
-.prediction, .reasoning, .changes, .dataSum{
+.prediction, .reasoning, .changes, .dataPar, .dataHead, li{
   font-size: 16px;
   line-height: 24px;
+}
+ul {
+  margin-right: 10%;
+  margin-left: 2%;
 }
 .results{
   display: flex;
@@ -116,15 +122,21 @@ li:not(:last-child){
   margin-left: 10%;
   margin-right: 10%;
 }
-
+.dataHead{
+  white-space: nowrap;
+}
+.dataSum{
+  display: flex;
+  gap:4%;
+}
 #analysis{
   margin-bottom: 8%;
   margin-left: 10%;
   margin-right: 10%;
 }
 #dataSummary{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 #conclusion{
