@@ -7,8 +7,8 @@
   </head>
   <body>
     <div id="titleArea">
-        <h1>Interface A/B Testing</h1>
-        <h3 id="goal">Goal: to run an A/B test on two different UI designs and analyze the results in order to determine whether a design 
+        <h1>A/B Interface Testing</h1>
+        <h3 class="goal">Goal: to run an A/B test on two different UI designs and analyze the results in order to determine whether a design 
           choice could reasonably impact user interaction</h3>
         <hr>
     </div>
@@ -41,6 +41,7 @@
 
     <div id="analysis">
       <h2>Data Analysis</h2>
+      <h3 class="goal">Analyze A/B test data for three metrics: user misclick rate, time spent on page, and mouse move distance.</h3>
       <div>
         <h4>Hypotheses</h4>
         <div id="misclick" class="hypotheses">
@@ -151,44 +152,46 @@
             </div>
           </div>
         </div>
-        <h4>Summary Statistics</h4>
-        <p>When running an A/B test, it is important to not only look at the output of the test itself but to also understand the 
-          general shape and pattern of the data. One way to do this is through evaluation of summary statistics:</p>
-        <div id="dataSummary">
-          <div class="dataSum">
-            <p class="dataHead"><b>Sample Size:</b></p>
-            <p class="dataPar">For the group A tests, 34 data points were collected, and for the group B tests, 30 data points were collected. 
-              Increasing the sample spaces of the tests would further improve the accuracy and reliability of the results. </p>
+        <div id="sumStats">
+          <h4>Summary Statistics</h4>
+          <p>When running an A/B test, it is important to not only look at the output of the test itself but to also understand the 
+            general shape and pattern of the data. One way to do this is through evaluation of summary statistics:</p>
+          <div id="dataSummary">
+            <div class="dataSum">
+              <p class="dataHead"><b>Sample Size:</b></p>
+              <p class="dataPar">For the group A tests, 34 data points were collected, and for the group B tests, 30 data points were collected. 
+                Increasing the sample spaces of the tests would further improve the accuracy and reliability of the results. </p>
+            </div>
+            <div class="dataSum">
+              <p class="dataHead"><b>Time on Page <br>Mean/Median</b></p>
+              <p class="dataPar">The median time on page for version A is 8222.5 and the mean is 9729.97. For group B, the median is 
+                8613  and the mean is 8699.79. There is not a mode value for the data as none of the values repeat. These statistics 
+                reinforce the failure to reject the null hypothesis. Even though there is a fairly significant difference between the 
+                two means, the mean of group A is larger than the median, suggesting a right-skewed distribution. The right skew 
+                indicates that there are high values pulling the mean to the right, which can be seen when looking at group A’s 
+                individual data points; there is one extreme outlier of 56671. In such cases, the median, being less sensitive to 
+                extreme values, gives a more representative measure of central tendency. Thus, the two medians for this metric reflect 
+                the similarity in the outcomes of both versions.</p>
+            </div>
+            <div class="dataSum">
+              <p class="dataHead"><b>Mouse Move <br>Mean/Median</b></p>
+              <p class="dataPar">Version A mouse move distance median is 3853.02 and the mean is 3267.09. For group B, the median mouse 
+                move distance is 2450.79 and the mean is 2731.42. For this metric, the median and averages are generally reflective of 
+                the analysis of the p-value from the results from the t-test. These values reinforce the rejection of the null 
+                hypothesis as the results of group B are consistently smaller than those of group A .</p>
+            </div>
           </div>
-          <div class="dataSum">
-            <p class="dataHead"><b>Time on Page <br>Mean/Median</b></p>
-            <p class="dataPar">The median time on page for version A is 8222.5 and the mean is 9729.97. For group B, the median is 
-              8613  and the mean is 8699.79. There is not a mode value for the data as none of the values repeat. These statistics 
-              reinforce the failure to reject the null hypothesis. Even though there is a fairly significant difference between the 
-              two means, the mean of group A is larger than the median, suggesting a right-skewed distribution. The right skew 
-              indicates that there are high values pulling the mean to the right, which can be seen when looking at group A’s 
-              individual data points; there is one extreme outlier of 56671. In such cases, the median, being less sensitive to 
-              extreme values, gives a more representative measure of central tendency. Thus, the two medians for this metric reflect 
-              the similarity in the outcomes of both versions.</p>
-          </div>
-          <div class="dataSum">
-            <p class="dataHead"><b>Mouse Move <br>Mean/Median</b></p>
-            <p class="dataPar">Version A mouse move distance median is 3853.02 and the mean is 3267.09. For group B, the median mouse 
-              move distance is 2450.79 and the mean is 2731.42. For this metric, the median and averages are generally reflective of 
-              the analysis of the p-value from the results from the t-test. These values reinforce the rejection of the null 
-              hypothesis as the results of group B are consistently smaller than those of group A .</p>
-          </div>
+          <p>Analyzing these summary statistics not only aids in understanding the trends within each group but also helps to detect 
+            unusual patterns that may impact the overall interpretation of the A/B test results. Based on the analyses, I can 
+            conclude that the changes made to the interface design do not have a significant impact on user experience; the user in 
+            either group made about the same rate of misclicks, and the difference in time spent is not large enough to make a claim 
+            about this metric. However, one striking difference between the two groups is difference in the mouse move distance, 
+            which was lower for version B. This indicates that the color coded appointments by location or the increased contrast 
+            and legibility of the scheduling buttons provided a more direct and clear route to accomplishing the given task. So, 
+            while 2 of the 3 metrics did not offer strong enough evidence to reject the null hypothesis, the third metric, mouse 
+            move distance, provided interesting data that suggests that there is a quantifiable impact on the user experience due 
+            to the change to the interface.</p>
         </div>
-        <p>Analyzing these summary statistics not only aids in understanding the trends within each group but also helps to detect 
-          unusual patterns that may impact the overall interpretation of the A/B test results. Based on the analyses, I can 
-          conclude that the changes made to the interface design do not have a significant impact on user experience; the user in 
-          either group made about the same rate of misclicks, and the difference in time spent is not large enough to make a claim 
-          about this metric. However, one striking difference between the two groups is difference in the mouse move distance, 
-          which was lower for version B. This indicates that the color coded appointments by location or the increased contrast 
-          and legibility of the scheduling buttons provided a more direct and clear route to accomplishing the given task. So, 
-          while 2 of the 3 metrics did not offer strong enough evidence to reject the null hypothesis, the third metric, mouse 
-          move distance, provided interesting data that suggests that there is a quantifiable impact on the user experience due 
-          to the change to the interface.</p>
       </div>
     </div>
 

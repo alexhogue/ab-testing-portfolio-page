@@ -53,7 +53,7 @@ li:not(:last-child){
   margin-top: 8%;
   margin-bottom: 4%;
 }
-#goal{
+.goal{
   width: 75%;
 }
 #pageLink:hover{
@@ -64,23 +64,18 @@ li:not(:last-child){
 #interfaces{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap:4%;
 }
-#versionA{
+#versionA, #versionB{
   display:flex;
+  width: 48%;
   flex-direction: column;
+  min-width: 325px;
 }
-#versionB{
-  display: flex;
-  flex-direction: column;
-}
-#versionAImg{
-  width:100%;
+#versionAImg, #versionBImg{
   margin-bottom: 2%;
-}
-#versionBImg{
-  width:100%;
-  margin-bottom: 2%;
+  min-width: 325px;
 }
 
 .hypotheses{
@@ -112,6 +107,7 @@ ul {
   align-items: flex-start;
   gap: 4%;
   margin-bottom: 2%;
+  margin-right: 5%;
 }
 .conclusions{
   width: 90%;
@@ -138,10 +134,12 @@ ul {
   margin-left: 8%;
   margin-right: 8%;
 }
-
+#sumStats{
+  /* margin-right: 5%; */
+}
 #conclusion{
   margin-bottom: 10%;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 20%;
   min-width: 325px;
 }
